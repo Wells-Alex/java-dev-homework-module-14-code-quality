@@ -40,7 +40,9 @@ public class Board {
 
     public boolean isFull() {
         for (char c : cells) {
-            if (c == EMPTY) return false;
+            if (c == EMPTY) {
+                return false;
+            }
         }
         return true;
     }
@@ -59,9 +61,13 @@ public class Board {
     public int getRandomEmptyCell(Random rnd) {
         List<Integer> emptyIndices = new ArrayList<>();
         for (int i = 0; i < BOARD_SIZE; i++) {
-            if (cells[i] == EMPTY) emptyIndices.add(i);
+            if (cells[i] == EMPTY) {
+                emptyIndices.add(i);
+            }
         }
-        if (emptyIndices.isEmpty()) return -1;
+        if (emptyIndices.isEmpty()) {
+            return -1;
+        }
         return emptyIndices.get(rnd.nextInt(emptyIndices.size()));
     }
 
